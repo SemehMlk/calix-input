@@ -23,10 +23,10 @@ npm install calix-input-component
 1. Import `CalixInputComponentModule` into your Angular module:
 
     ```typescript
-    import { CalixInputComponentModule } from 'calix-input-component';
+    import { CalixInputModule } from 'calix-input';
 
     @NgModule({
-      imports: [CalixInputComponentModule],
+      imports: [CalixInputModule],
       // ...
     })
     export class YourModule { }
