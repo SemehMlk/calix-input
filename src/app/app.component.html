@@ -2,42 +2,48 @@
   <div class="demo-section">
     <h1>Form</h1>
     <div>
-      <p><strong>input 1:</strong> de type email, required (*), un label, un info text qui s'affiche quand on survole sur l'icone info a droite du label et en bas d'input il y a 'un hint text' </p>
-      <p><strong>input 2:</strong> de type text, required (*), un label, pas d'info text et un hint text qui s'affiche en bas de l'input </p>
+      <p><strong>input 1:</strong> de type email, required (*), un label, un info text qui s'affiche quand on survole
+        sur l'icone info a droite du label et en bas d'input il y a 'un hint text' </p>
+      <p><strong>input 2:</strong> de type text, required (*), un label, pas d'info text et un hint text qui s'affiche
+        en bas de l'input </p>
       <p><strong>input 3:</strong> de type date, not required , un label, pas d'info text et pas de hint text </p>
-      <!--<div>
-        <strong>Le message d'erreur sous chaque input s'affiche dans les situations suivantes:
-        Lorsqu'on touche l'input (onTouched) ou Lorsque l'utilisateur clique sur le bouton "Submit" et l'input n'est pas valide</strong>
-      </div>
-    </div>-->
-    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-      <calix-input [label]="'Email'" [type]="'email'" formControlName="email" [placeholder]="'Enter your Email'"
-        [error]="setErrorMessage()" [infoText]="'info text'" [hint]="'this is hint text'"
-        [validators]="myForm.get('email')?.validator ? [myForm.get('email')?.validator] : []"
-        [isFormSubmitted]="isFormSubmitted"></calix-input>
-      <calix-input [label]="'Name'" [type]="'text'" formControlName="name" [placeholder]="'Enter your name'"
-        [error]="setNameMessage()" [hint]="'this is hint text'"
-        [validators]="myForm.get('name')?.validator ? [myForm.get('name')?.validator] : []"
-        [isFormSubmitted]="isFormSubmitted"></calix-input>
-      <calix-input [label]="'Birth date'" [type]="'date'" formControlName="birth"
-        [isFormSubmitted]="isFormSubmitted"></calix-input>
-      <button type="submit" class="button">Submit Form</button>
-    </form>
-    <span>form value: {{myForm.value | json}}</span>
-    <br>
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <calix-input [label]="'Email'" [type]="'email'" formControlName="email" [placeholder]="'Enter your Email'"
+          [error]="setErrorMessage()" [infoText]="'info text'" [hint]="'this is hint text'"
+          [validators]="myForm.get('email')?.validator ? [myForm.get('email')?.validator] : []"
+          [isFormSubmitted]="isFormSubmitted"></calix-input>
+        <calix-input [label]="'Name'" [type]="'text'" formControlName="name" [placeholder]="'Enter your name'"
+          [error]="setNameMessage()" [hint]="'this is hint text'"
+          [validators]="myForm.get('name')?.validator ? [myForm.get('name')?.validator] : []"
+          [isFormSubmitted]="isFormSubmitted"></calix-input>
+        <calix-input [label]="'Birth date'" [type]="'date'" formControlName="birth"
+          [isFormSubmitted]="isFormSubmitted"></calix-input>
+        <button type="submit" class="button">Submit Form</button>
+      </form>
+      <span>form value: {{myForm.value | json}}</span>
+      <br>
+    </div>
+    <div class="demo-section">
+      <h1>ngModel</h1>
+      <calix-input [label]="'Password'" [type]="'password'" [required]="false" [hint]="'this is hint value'"
+        [placeholder]="'Enter your password'" [(ngModel)]="inputValue"></calix-input>
+      <span>Input value: {{inputValue}}</span>
+      <br>
+    </div>
+
+    <div class="demo-section">
+      <h1>ngModel with initial value + readonly</h1>
+      <calix-input [label]="'Value'" [type]="'text'" [readonly]="true" [hint]="'this is readonly value'"
+        [infoText]="'you can\'t update this value'" [(ngModel)]="readOnlyInputValue"></calix-input>
+      <span>Input value: {{readOnlyInputValue}}</span>
+      <br>
+    </div>
+
+    <div class="demo-section">
+      <h1>(valueChanged)</h1>
+      <calix-input [label]="'Label'" [type]="'text'" [readonly]="false" [required]="false" [hint]="'this is hint value'"
+        [placeholder]="'Enter your text here'" [error]="''" [infoText]="'info text'"
+        (valueChanged)="onValueChanged($event)"></calix-input>
+      <span>Input value: {{inputValueFromInputChanged}}</span>
+    </div>
   </div>
-  <div class="demo-section">
-    <h1>ngModel</h1>
-    <calix-input [label]="'Password'" [type]="'password'" [readonly]="false" [required]="true" [hint]="'this is hint value'"
-      [placeholder]="'Enter your text here'" [(ngModel)]="inputValue"></calix-input>
-    <span>Input value: {{inputValue}}</span>
-    <br>
-  </div>
-  <div class="demo-section">
-    <h1>(valueChanged)</h1>
-    <calix-input [label]="'Label'" [type]="'text'" [readonly]="false" [required]="false" [hint]="'this is hint value'"
-      [placeholder]="'Enter your text here'" [error]="''" [infoText]="'info text'"
-      (valueChanged)="onValueChanged($event)"></calix-input>
-    <span>Input value: {{inputValueFromInputChanged}}</span>
-  </div>
-</div>

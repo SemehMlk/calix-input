@@ -14,6 +14,7 @@ export class AppComponent {
   inputValue: any;
   inputValueFromInputChanged: any;
   dateValue: any;
+  readOnlyInputValue: string = 'Initial';
   isFormSubmitted = false;
 
   constructor(private fb: FormBuilder, private cdr: ChangeDetectorRef) { }
