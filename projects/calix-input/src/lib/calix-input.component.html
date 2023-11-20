@@ -1,0 +1,16 @@
+<div class="calix-input-container">
+    <div class="label-container" id="label-container">
+        <label id="label" name="label" for="calixInput">{{ label }}</label>
+        <div class="tooltip" *ngIf="label && infoText">
+            <i class="material-icons info-icon ">info_outline</i>
+            <span class="tooltiptext">{{infoText}}</span>
+        </div>
+    </div>
+    <input id="calixInput" [class.has-error]="!isValid && !isValidationInProgress && isTouched && isBlurred"
+        appRequiredMarker (blur)="onBlur()" name="calixInput" #calixInput [type]="type" [placeholder]="placeholder"
+        (input)="onInputChange($event)" [(ngModel)]="value" [readonly]="readonly" [required]="required" />
+    <div *ngIf="hint" class="hint">{{ hint }}</div>
+    <div [@slideInOut] *ngIf="error && isTouched && isBlurred" class="error"><i class="material-icons error-icon">error</i><span>{{
+            error }}</span>
+    </div>
+</div>
