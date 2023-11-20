@@ -8,14 +8,13 @@ The Calix Input Component Library provides a customizable Angular input componen
 - [Usage](#usage)
 - [Events](#events)
 - [Examples](#example)
-- [License](#license)
 
 ## Installation
 
 To install the Calix Input Component Library, use the following command:
 
 ```bash
-npm install calix-input-component
+npm install ng-calix-input
 ```
 
 ## Usage
@@ -23,7 +22,7 @@ npm install calix-input-component
 1. Import `CalixInputComponentModule` into your Angular module:
 
     ```typescript
-    import { CalixInputModule } from 'calix-input';
+    import { CalixInputModule } from 'ng-calix-input';
 
     @NgModule({
       imports: [CalixInputModule],
