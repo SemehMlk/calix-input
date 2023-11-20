@@ -117,14 +117,11 @@ export class CalixInputComponent implements ControlValueAccessor, Validator, OnC
   }
 
   validate(control: any = null): ValidationErrors | null {
-    if (!control) return null;
-
-    if (this.isValidationInProgress) {
-      return null;
-    }
+    if (!control || this.isValidationInProgress) return null;
 
     this.isValidationInProgress = true;
     const allValidators = this.validators ? [...this.validators] : [];
+    
     if (this.required || (!allValidators.some(validator => validator === Validators.required) && this.required)) {
       allValidators.unshift(Validators.required);
     }

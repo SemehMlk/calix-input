@@ -90,7 +90,7 @@ The `calix-input` component emits the following event:
 ## Examples
 #### with formControl
 ```html
-<form [formGroup]="myForm">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
   <calix-input
     [label]="'Email'"
     [hint]="'Enter your email address'"
@@ -99,6 +99,7 @@ The `calix-input` component emits the following event:
     [placeholder]="'Email'"
     [validators]="myForm.get('email')?.validator ? [myForm.get('email')?.validator] : []"
     [error]="setEmailErrorMessage()"
+    [isFormSubmitted]="isFormSubmitted"
     formControlName="email"
   ></calix-input>
    <calix-input
@@ -108,13 +109,16 @@ The `calix-input` component emits the following event:
     [placeholder]="'Password'"
     [validators]="myForm.get('password')?.validator ? [myForm.get('password')?.validator] : []"
     [error]="setPasswordErrorMessage()"
+    [isFormSubmitted]="isFormSubmitted"
     formControlName="email"
   ></calix-input>
+   <button type="submit" class="button">Submit Form</button>
 </form>
 ```
 ``` typescript
 export class AppComponent  {
     myForm: FormGroup;
+    isFormSubmitted = false;
     // ...
    this.myForm = this.fb.group({
       email: [null, [Validators.required, Validators.email]],
@@ -127,6 +131,10 @@ export class AppComponent  {
   }
   setPasswordErrorMessage() {
     return this.myForm.get('password')?.hasError('required') ? 'You must enter a value' : '';
+  }
+    onSubmit() {
+    this.isFormSubmitted = true;
+    // ...
   }
 }
 ```
