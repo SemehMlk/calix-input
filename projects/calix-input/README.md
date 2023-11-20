@@ -8,6 +8,8 @@ The Calix Input Component Library provides a customizable Angular input componen
 - [Usage](#usage)
 - [Events](#events)
 - [Examples](#example)
+### demo
+https://github.com/SemehMlk/calix-input-demo
 
 ## Installation
 
