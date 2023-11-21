@@ -112,7 +112,7 @@ The `calix-input` component emits the following event:
     [validators]="myForm.get('password')?.validator ? [myForm.get('password')?.validator] : []"
     [error]="setPasswordErrorMessage()"
     [isFormSubmitted]="isFormSubmitted"
-    formControlName="email"
+    formControlName="password"
   ></calix-input>
    <button type="submit" class="button">Submit Form</button>
 </form>

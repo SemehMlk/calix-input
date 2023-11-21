@@ -108,7 +108,7 @@ The `calix-input` component emits the following event:
     [placeholder]="'Password'"
     [validators]="myForm.get('password')?.validator ? [myForm.get('password')?.validator] : []"
     [error]="setPasswordErrorMessage()"
-    formControlName="email"
+    formControlName="password"
   ></calix-input>
 </form>
 ```
