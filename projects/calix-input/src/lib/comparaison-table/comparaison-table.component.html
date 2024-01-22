@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Before</th>
+      <ng-container *ngFor="let comparedItem of comparedObjects">
+        <th>After</th>
+      </ng-container>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container>
+      <tr *ngFor="let field of fields">
+        <td class="field">{{ getDisplayedPropNameForField(field) }}</td>
+        <td>{{ getParserForField(field)(referenceObject[field]) }}</td>
+        <td *ngFor="let comparedItem of comparedObjects"
+          [innerHTML]="comparedItem[field] | difference: referenceObject[field] : getComparatorForField(field) :  getParserForField(field)">
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
